@@ -2,10 +2,14 @@ package ru.mirea.task8;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Scanner;
 
 public class Task8_3 {
     public static void main(String[] args) {
-        String path="C:/Users/danil/IdeaProjects/JavaFirstMirea/src/ru/mirea/task8/nixDance.gif";
+        String path;
+        Scanner input=new Scanner(System.in);
+        System.out.print("Path: ");
+        path=input.nextLine();
         JFrame frame = new JFrame("Task8_3");
         JLabel label =new JLabel();
 
