@@ -102,6 +102,17 @@ public class Task10 {
         return Without_two_zeros(a,b-1)+Without_two_zeros(a-1,b-1);
     }
 
+    public static int Reverse_number(int number, int length){
+        if (number > 10){
+            int result = Reverse_number(number / 10, length - 1);
+            result += (number % 10)*Math.pow(10., length);
+            return result;
+        }
+        else {
+            return number;
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int menu;
@@ -147,7 +158,11 @@ public class Task10 {
                     break;
                 }
                 case 5: {
-
+                    int number;
+                    System.out.println("Введите число, которое хотите развернуть");
+                    number=InputInt();
+                    int length = (int) (Math.log10(number) + 1) - 1;
+                    System.out.println("Развернутое число "+number+" = "+Reverse_number(number,length));
                     break;
                 }
                 default:{
