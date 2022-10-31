@@ -32,6 +32,7 @@ public class Task15 {
     }
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
+        String file_name = "src/ru/mirea/task15/data.txt";
         int menu;
         while (true){
             menu = InputMenu();
@@ -41,7 +42,7 @@ public class Task15 {
             }
             switch (menu){
                 case 1:{
-                    try (FileWriter writer = new FileWriter("C:/Users/danil/IdeaProjects/JavaFirstMirea/src/ru/mirea/task15/data.txt", true)){
+                    try (FileWriter writer = new FileWriter(file_name, true)){
                         System.out.println("Введите данные, которые нужно записать:");
                         ArrayList<String> list = new ArrayList();
                         String data = scanner.nextLine();
@@ -60,7 +61,7 @@ public class Task15 {
                     break;
                 }
                 case 2:{
-                    try (FileReader reader = new FileReader("C:/Users/danil/IdeaProjects/JavaFirstMirea/src/ru/mirea/task15/data.txt")){
+                    try (FileReader reader = new FileReader(file_name)){
                         int c;
                         System.out.println("Данные, находящиеся в файле:");
                         while((c=reader.read())!=-1){
@@ -74,7 +75,7 @@ public class Task15 {
                     break;
                 }
                 case 3:{
-                    try (FileWriter writer = new FileWriter("C:/Users/danil/IdeaProjects/JavaFirstMirea/src/ru/mirea/task15/data.txt", false)){
+                    try (FileWriter writer = new FileWriter(file_name, false)){
                         System.out.println("Введите новые данные, которые нужно записать:");
                         ArrayList<String> list = new ArrayList();
                         String data = scanner.nextLine();
@@ -93,7 +94,7 @@ public class Task15 {
                     break;
                 }
                 case 4:{
-                    try (FileWriter writer = new FileWriter("C:/Users/danil/IdeaProjects/JavaFirstMirea/src/ru/mirea/task15/data.txt", true)){
+                    try (FileWriter writer = new FileWriter(file_name, true)){
                         System.out.println("Введите данные, которые нужно записать в конец в файла:");
                         ArrayList<String> list = new ArrayList();
                         String data = scanner.nextLine();
