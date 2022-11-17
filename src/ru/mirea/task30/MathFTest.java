@@ -3,6 +3,9 @@ package ru.mirea.task30;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class MathFTest {
     static boolean factorialTest=false;
     static boolean powTest=false;
@@ -15,7 +18,7 @@ public class MathFTest {
         Assert.assertEquals(49,MathF.pow(-7,2));
         Assert.assertEquals(-1024,MathF.pow(-4,5));
         powTest=true;
-        Task31.writeResults();
+        writeMathFTestResults();
     }
 
     @Test
@@ -27,6 +30,36 @@ public class MathFTest {
         Assert.assertEquals(24,MathF.factorial(4));
         Assert.assertEquals(120,MathF.factorial(5));
         factorialTest=true;
-        Task31.writeResults();
+        writeMathFTestResults();
+    }
+
+    static void writeMathFTestResults() {
+        try {
+            FileWriter fw = new FileWriter("src\\ru\\mirea\\task31\\MathTestsResults.md");
+
+            fw.write("# Результаты тестирования \n");
+
+            fw.write("## Тест factorial()\n");
+            if (MathFTest.factorialTest) {
+                fw.write("Тесты прошли успешно\n");
+            }
+            else {
+                fw.write("Тесты прошли неудачно\n");
+            }
+
+            fw.write("## Тест pow()\n");
+            if (MathFTest.powTest) {
+                fw.write("Тесты прошли успешно\n");
+            }
+            else {
+                fw.write("Тесты прошли неудачно\n");
+            }
+
+            System.out.println("Результаты успешно записаны");
+            fw.flush();
+        }
+        catch (IOException e) {
+            System.out.println("Ошибка: \n" + e.getMessage());
+        }
     }
 }
